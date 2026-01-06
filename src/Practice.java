@@ -7,6 +7,7 @@ public class Practice {
 
   // Time Complexity: o(n)
   // Space Complexity: o(n)
+  // n is array length
   public static List<Integer> findEvens(int[] array) {
     List<Integer> evens = new ArrayList<>();
     for (int num : array) {
@@ -19,6 +20,7 @@ public class Practice {
 
   // Time Complexity: O(n)
   // Space Complexity: O(1)
+  // n is matrix length
   public static int sumDiagonal(int[][] matrix) {
     int sum = 0;
     for (int i = 0; i < matrix.length; i++) {
@@ -30,6 +32,7 @@ public class Practice {
 
   // Time Complexity: o(n)
   // Space Complexity: 0(n)
+  // n is array length
   // Does the 'T' look confusing? Consider refreshing on generic methods
   // We'll revisit generics as a class later
   public static <T> Map<T, Integer> countFrequencies(T[] array) {
