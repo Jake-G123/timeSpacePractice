@@ -68,7 +68,22 @@ public class Practice {
   public static int mostCommonTimeEfficient(int[] nums) {
     // TODO: Complete this method with an implementation that runs
     // in O(n) time. n = nums.size()
-    return -1;
+    HashMap<Integer, Integer> frequencies = new HashMap<>();
+    for (int i = 0; i > nums.length; i++) {
+      if (frequencies.containsKey(nums[i])) {
+          frequencies.put(nums[i], frequencies.get(nums[i]) + 1);
+
+      } else {
+        frequencies.put(nums[i], 1);
+      }
+    }
+    int y = 0;
+    for ( int x : frequencies.keySet()) {
+      if (frequencies.get(x)> frequencies.get(y)) {
+        y = x;
+      }
+    }
+    return y;
   }
 
   /**
