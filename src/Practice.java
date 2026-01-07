@@ -62,8 +62,8 @@ public class Practice {
    * 
    * Once you finish, WRITE TESTS FOR IT in PracticeTest.java
    * 
-   * Time Complexity: 
-   * Space Complexity: 
+   * Time Complexity: O(n)
+   * Space Complexity: O(n)
    * 
    * @param nums An array of integers
    * @return the integer that shows up most commonly
@@ -71,22 +71,20 @@ public class Practice {
   public static int mostCommonTimeEfficient(int[] nums) {
     // TODO: Complete this method with an implementation that runs
     // in O(n) time. n = nums.size()
-    HashMap<Integer, Integer> frequencies = new HashMap<>();
-    for (int i = 0; i > nums.length; i++) {
-      if (frequencies.containsKey(nums[i])) {
-          frequencies.put(nums[i], frequencies.get(nums[i]) + 1);
 
+    HashMap<Integer, Integer> mostCommonMap = new HashMap<>();
+    int mostCommonNum = nums[0];
+    for (int i : nums) {
+      if (mostCommonMap.containsKey(i)) {
+          mostCommonMap.put(i, (mostCommonMap.get(i)) + 1);
+          if (mostCommonMap.get(i) > mostCommonMap.get(mostCommonNum)) {
+            mostCommonNum = i;
+          }
       } else {
-        frequencies.put(nums[i], 1);
+        mostCommonMap.put(i, 1);
       }
     }
-    int y = 0;
-    for ( int x : frequencies.keySet()) {
-      if (frequencies.get(x)> frequencies.get(y)) {
-        y = x;
-      }
-    }
-    return y;
+    return mostCommonNum;
   }
 
   /**
@@ -98,8 +96,8 @@ public class Practice {
    * 
    * Once you finish, WRITE TESTS FOR IT in PracticeTest.java
    * 
-   * Time Complexity: 
-   * Space Complexity: 
+   * Time Complexity: O(n^2)
+   * Space Complexity: O(1)
    * 
    * @param nums An array of integers
    * @return the integer that shows up most commonly
@@ -107,6 +105,22 @@ public class Practice {
   public static int mostCommonSpaceEfficient(int[] nums) {
     // TODO: Complete this method with an implementation that runs
     // in O(1) space.
-    return -1;
+    int mostCommon = nums[0];
+    int mostCommonTally = 0;
+    for (int x : nums) {
+      int currentTally = 0;
+
+      // adding to currentTally (even if a tally for this number has already been done not sure how to improve right now)
+      for (int y : nums) {
+        if (y == x) {
+          currentTally++;
+        }
+      }
+
+      if (currentTally > mostCommonTally) {
+        mostCommon = x;
+      }
+    }
+    return mostCommon;
   }
 }
