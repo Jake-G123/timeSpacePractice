@@ -119,6 +119,7 @@ public class Practice {
 
       if (currentTally > mostCommonTally) {
         mostCommon = x;
+        mostCommonTally = currentTally;
       }
     }
     return mostCommon;
